@@ -2,11 +2,11 @@ LIB = libstd/
 LIB32 = lib/
 LIB64 = lib64/
 
-main: asn01.o libmalloc.so libpath
-	gcc  -o main asn01.o -L$(LIB) -lmalloc
+main: main.o libmalloc.so libpath
+	gcc  -o main main.o -L$(LIB) -lmalloc
 
-asn01.o: asn01.c
-	gcc -g -w -c asn01.c -o asn01.o
+main.o: main.c
+	gcc -g -w -c main.c -o main.o
 
 libmalloc.so: malloc.c malloc.h
 	rm -r -f $(LIB)
